@@ -57,6 +57,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         medical.setOnCheckedChangeListener(this);
         accommodation.setOnCheckedChangeListener(this);
 
+        graduated.setOnClickListener(this);
+        unGraduated.setOnClickListener(this);
+
     }
 
     public void cData(){
@@ -83,6 +86,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onClick(View v) {
+        if (v.getId() == R.id.grad){
+            totalFees.setText("0");
+            totalHrs.setText("0");
+            thrs = 0;
+            tfees = 0;
+        }
+        if (v.getId() == R.id.unGrad){
+            totalFees.setText("0");
+            totalHrs.setText("0");
+            thrs = 0;
+            tfees = 0;
+        }
         if (v.getId() == R.id.button) {
             if (graduated.isChecked() || unGraduated.isChecked()) {
                 thrs += Integer.parseInt(courseHrs.getText().toString());
